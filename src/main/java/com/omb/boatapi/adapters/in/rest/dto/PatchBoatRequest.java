@@ -1,14 +1,13 @@
 package com.omb.boatapi.adapters.in.rest.dto;
 
 import com.omb.boatapi.domain.model.Category;
-import jakarta.validation.constraints.NotNull;
+import com.omb.boatapi.validation.AtLeastOneNotNull;
 import lombok.Data;
 
 @Data
+@AtLeastOneNotNull
 public class PatchBoatRequest {
 
-    @NotNull
     private String name;
-    @NotNull
     private Category category;
 }
