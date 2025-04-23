@@ -10,6 +10,7 @@ public interface BoatService {
     Boat saveBoat(final Boat boat);
     Boat findById(final String id);
     List<Boat> findAllBoat();
-    Boat updateBoat(final String id, final String name, final Category category);
+    Boat updateBoat(final String id, final String name, final Category category
+            , final String description, final String registration);
     void deleteBoat(final String id);
 }

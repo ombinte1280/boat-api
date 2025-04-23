@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -27,4 +28,9 @@ public class BoatEntity {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Category category;
+    private String description;
+    @NotNull
+    private String registration;
+    @NotNull
+    private LocalDate creationDate;
 }

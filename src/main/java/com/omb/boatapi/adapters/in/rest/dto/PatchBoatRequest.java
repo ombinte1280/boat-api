@@ -10,4 +10,6 @@ public class PatchBoatRequest {
 
     private String name;
     private Category category;
+    private String registration;
+    private String description;
 }

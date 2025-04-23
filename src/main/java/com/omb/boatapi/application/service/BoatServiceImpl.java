@@ -38,14 +38,20 @@ public class BoatServiceImpl implements BoatService {
     }
 
     @Override
-    public Boat updateBoat(String id, String name, Category category) {
+    public Boat updateBoat(final String id, final String name, final Category category
+            , final String description, final String registration) {
         Boat boat = findById(id);
         if(name != null) {
             boat.setName(name);
         }
-
         if (category != null) {
             boat.setCategory(category);
+        }
+        if(description != null) {
+            boat.setDescription(description);
+        }
+        if(registration != null) {
+            boat.setRegistration(registration);
         }
         return boatRepositoryPort.saveBoat(boat);
     }

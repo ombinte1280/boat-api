@@ -3,6 +3,7 @@ package com.omb.boatapi.domain.model;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -18,4 +19,9 @@ public class Boat {
     private String name;
     @NotNull
     private Category category;
+    private String description;
+    @NotNull
+    private String registration;
+    @NotNull
+    private LocalDate creationDate;
 }

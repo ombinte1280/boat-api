@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -31,13 +32,15 @@ public class BoatController {
 
     @PostMapping
     public ResponseEntity<Boat> createBoat(@Valid @RequestBody final CreateBoatRequest request) {
-        Boat newBoat = new Boat(null, request.getName(), request.getCategory());
+        Boat newBoat = new Boat(null, request.getName(), request.getCategory()
+                , request.getDescription(), request.getRegistration(), LocalDate.now());
         return ResponseEntity.ok(boatService.saveBoat(newBoat));
     }
 
     @PatchMapping("/{id}")
     public ResponseEntity<Boat> patchBoat(@PathVariable final String id, @Valid @RequestBody final PatchBoatRequest request) {
-        return ResponseEntity.ok(boatService.updateBoat(id, request.getName(), request.getCategory()));
+        return ResponseEntity.ok(boatService.updateBoat(id, request.getName(), request.getCategory()
+        , request.getDescription(), request.getRegistration()));
     }
 
     @DeleteMapping("/{id}")
