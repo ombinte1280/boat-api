@@ -2,6 +2,7 @@ package com.omb.boatapi.adapters.in.rest.exception;
 
 import com.omb.boatapi.domain.exception.NotFoundException;
 import com.omb.boatapi.domain.exception.UnAuthorizedException;
+import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,5 +23,11 @@ public class RestExceptionHandler {
     public ResponseEntity<String> handleNotFoundException(NotFoundException ex) {
         log.error(ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+
+    @ExceptionHandler(ExpiredJwtException.class)
+    public ResponseEntity<String> handleExpiredJwtException(ExpiredJwtException ex) {
+        log.error(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
     }
 }
