@@ -22,7 +22,6 @@ Une API REST construite avec **Spring Boot 3.4**, **Java 21**, et **Spring Secur
 
 - Java 21
 - Maven 3.9+
-- Keycloak en local (port `8080` par défaut)
 - H2
 
 ### 2. Configuration
